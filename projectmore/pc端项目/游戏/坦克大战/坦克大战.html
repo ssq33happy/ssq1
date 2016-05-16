@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>坦克大战</title>
+<style>
+*{margin:0; padding:0;}
+body{background:#030600; min-width:1280px; min-height:630px; }
+#img{width:30px; height:30px; background-image:url(tank1.jpg); position:absolute; top:600px; border:0; z-index:1; left:510px;}
+#contianer{ height:630px; width:920px; position:relative; float:left;}
+
+.zhuan1,.zhuan9,.zhuan10,.zhuan11,.zhuan12{background-image:url(zhuan2.jpg); width:30px; height:30px; position:absolute;}
+.zhidan{background:#fff; width:3px; height:3px; position:absolute;}
+.zhuan0,.zhuan6,.zhuan7,.zhuan8{display:none}
+.zhuan2{background-image:url(cao.jpg);width:30px; height:30px; position:absolute; z-index:2; opacity:.8;}
+.zhuan3{background-image:url(tank3.jpg);width:30px; height:30px; position:absolute;z-index:1;}
+.zhuan4{background-image:url(zhuan3.jpg);width:30px; height:30px; position:absolute;}
+.zhuan5{background-image:url(heliu.jpg);width:30px; height:30px; position:absolute;}
+
+
+.home1{ top:570px; left:420px;}
+.home2{ top:600px; left:420px;}
+.home3{ top:570px; left:450px;}
+.home4{ top:570px; left:480px;}
+.home5{ top:600px; left:480px;}
+.home6{background-image:url(birde.png); width:30px; height:30px; position:absolute; top:600px; left:450px; }
+
+#rightBar{float:right; height:600px; width:300px; border:10px solid #630; text-align:center; }
+#enemy{ height:200px; padding:60px 60px;  border-bottom:10px solid #630;}
+#enemy .enm{background-image:url(tank3.jpg);width:30px; height:30px; float:left;}
+#p1,#p2,#p3{height:80px; color:#FFF; font-size:30px; line-height:80px; text-align:center;}
+#play{height:30px; padding:0 100px;}
+#play .pp{width:30px; height:30px; float:left; background-image:url(tank1.jpg);}
+</style>
+<script type="text/javascript" src="moveX.js"></script>
+<script type="text/javascript" src="move.js"></script>
+<script>
+window.onload=function(){
+	var img =document.getElementById('img');//img为P1玩家坦克
+	var enemy =document.getElementById('enemy');//显示敌方坦克数量图片
+	var play =document.getElementById('play');//显示我方坦克数量图片
+	var p1 =document.getElementById('p1');//显示坦克数字
+	var p2 =document.getElementById('p2');//显示得分
+	var p3 =document.getElementById('p3');//显示生命
+	img.style.transform='rotate(0deg)';//确定开始坦克方向↑
+	var contianer =document.getElementById('contianer');//所有元素的父元素黑色部分
+
+		var arr = [65,87,68,83,74]//存储上下左右开枪的keyCode值
+		var life = 3;//生命数量
+	for(var i=0;i<8; i++){	//////////随机（草丛，河流，敌方坦克，砖头，空白）布局
+		for(var j=0;j<32 ; j++){
+			var odiv = document.createElement('div');
+			odiv.className='zhuan'+parseInt(Math.random()*13);//给div添加随机class
+			odiv.style.left=j*30+'px';
+			odiv.style.top=i*60+'px';
+			if('zhuan0zhuan6zhuan7zhuan8'.indexOf(odiv.className)==-1){
+				contianer.appendChild(odiv);//非空白div添加节点
+			}else{
+				odiv=null;//zhuan0zhuan6zhuan7zhuan8class名为空白div不添加节点并直接删除优化DOM
+			}
+		}
+	}
+
+	var tanks =contianer.getElementsByClassName('zhuan3');//获得所有敌方坦克
+	var allTank =tanks.length;//储存开始所有敌方坦克数量
+	setInterval(function(){	//右侧数据显示
+		var str = '';
+		p1.innerHTML='现在敌方坦克数量<br/><b>'+tanks.length+'</b>';//实时显示当前所有敌方坦克数量
+		p2.innerHTML='得分:<b>'+(allTank-tanks.length)*10+'</b>分';//实时显示得分
+		p3.innerHTML='生命:<b>'+life+'</b>';//实时显示生命数量
+		if(tanks.length==0){str='';alert('下一关');open('坦克大战.html','_parent')}//当敌方坦克都被消灭进入下一关
+		for(var i =0;i<tanks.length;i++){//实时显示当前所有敌方坦克数的图片
+			str += "<div class='enm'></div>";
+		}
+		enemy.innerHTML=str;
+		str='';
+		for(var i =0;i<life;i++){//实时显示当前所有我方坦克数的图片
+		
+			str += "<div class='pp'></div>";
+		}
+		play.innerHTML=str;
+	},30)
+	for(var i =0; i<tanks.length;i++){
+		moveTank(tanks[i]);//调用坦克运动随机函数
+	}
+	var divs =  contianer.getElementsByTagName('div')//获得所有布局div包括坦克数组
+	///////////键盘控制
+	document.onkeyup=function(evt){
+		var oEvent = evt||window.event;
+		if(img.style.display=='none'){//当玩家被消灭
+			if(life==0){alert('重新开始！！！！');open('坦克大战.html','_parent')}//生命为零重新开始
+			life--;
+			img.style.display='block';
+			img.style.backgroundImage='url(tank1.jpg)';
+			move1(img, 'opacity', 100);
+			img.style.transform='rotate(0deg)';//保证再次出现枪口向上
+			img.style.left='510px';//保证再次出现的位置
+			img.style.top='600px';//保证再次出现枪口
+		}
+		move(img,oEvent.keyCode);//调用封装坦克运动函数
+	}
+function moveTank(obj){		
+	var	index =0;
+	obj.timer = setInterval(function(){//敌方坦克500毫秒做出一个随机动作
+		if(!obj.parentNode){clearInterval(obj.timer);}
+		index=parseInt(Math.random()*5);//随机数组索引
+		var num = arr[index];//取得随机索引的值即敌方坦克键入的keyCode
+		move(obj,num)},500);//调用封装坦克运动函数	
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="contianer">
+<div id="img"></div>
+<div class="zhuan1 home1"></div>
+<div class="zhuan1 home2"></div>
+<div class="zhuan1 home3"></div>
+<div class="zhuan1 home4"></div>
+<div class="zhuan1 home5"></div>
+<div class="home6"></div>
+</div>
+<div id="rightBar">
+<p id="p1"></p>
+<div id="enemy"></div>
+<p id="p2"></p>
+<div id="play"></div>
+<p id="p3"></p>
+</div>
+<audio src="audio/start.mp3" autoplay ></audio>
+<audio id="attack" src="audio/attack.mp3"></audio>
+<audio id="move" src="audio/move.mp3"></audio>
+<audio id="tankCrack" src="audio/tankCrack.mp3"></audio>
+<audio id="playerCrack" src="audio/playerCrack.mp3"></audio>
+</body>
+</html>

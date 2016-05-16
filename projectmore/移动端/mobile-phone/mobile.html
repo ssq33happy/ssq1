@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>移动端页面布局</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<script>
+		(function (doc, win) {
+	    var docEl = doc.documentElement,
+	        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	        recalc = function () {
+	            var clientWidth = docEl.clientWidth;
+	            if (!clientWidth) return;
+	            if(clientWidth>=640){
+	                docEl.style.fontSize = '100px'; 
+	            }else{
+	                docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+	            }
+	        };
+	    if (!doc.addEventListener) return;
+	    win.addEventListener(resizeEvt, recalc, false);
+	    doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+	</script>
+	<style>
+		body{
+			font-size: 0.26rem;
+		} 
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		a{
+			text-decoration:none;
+		}
+		header{
+			width: 6.4rem;
+			height: 25%;
+			background: url("header.jpg") no-repeat;
+			background-size: 100% 100%;
+		}
+		html,body,.main{
+			height: 100%;
+		}
+		.nav{
+			height: 31.5%;
+			background-color:#fff;
+		}
+		.invite{
+			height: 19%;
+			background-color:#fff;
+			/*margin-top: 2%;*/
+			text-align:center;
+		}
+		.news{
+			height:16%;
+			background-color:#fff;
+			text-align:center;
+		}
+		.footer{
+			/*margin-top: 2%;*/
+			height: 8.5%;
+			background:#1d1a2b;
+			text-align:center;
+		}
+		.footer a{
+			width:25%;
+			display:inline-block;
+			float:left;
+			height:100%;
+			line-height:55px;
+			color:#fff;
+			}
+		.nav ul{
+			overflow: hidden;
+			height: 100%;
+		}
+		.nav ul li{
+			height: 50%;
+			list-style: none;
+			float: left;
+			width: 2rem;
+			text-align: center;
+		}
+		.nav ul li img{
+			width: 0.87rem;
+		}
+		.nav ul li p{
+			font-size: 0.26rem;
+		}
+		.nav ul li:nth-child(1),.nav ul li:nth-child(4),.nav ul li:nth-child(5){
+			margin-right: 0.2rem;
+		}
+		.nav ul li:nth-child(2){
+			margin-right: 0.2rem;
+		}
+		.empty{
+			background-color:#f2f2f2;
+			height:10%;
+			border-top:1px solid #e1e1e1;
+			border-bottom:1px solid #e1e1e1;
+			box-sizing:border-box;
+		}
+		.fm{
+			width:100%;
+			height:80%;
+			position:relative;
+		}
+		.btn{
+			position:absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			margin:auto;
+			border:0;
+			width:5.5rem;
+			height:40%;
+			background:#47379a;
+			border-radius:0.1rem;
+			color:#FFF;
+			font-size: 0.4rem;
+		}
+		.new{
+			height:100%;
+			width:50%;
+			float:left;
+			box-sizing:border-box;
+			border-right:1px solid #e1e1e1;
+			line-height:1.8rem;
+		}
+	</style>  
+</head>
+<body>
+	<div class="main">
+		<!-- 1. rem 布局 
+		2. 百分比布局,(简单但是麻烦)  算内容占总的比例 
+		3. 弹性盒模型布局 -->
+        <!-- 
+			百分比布局： 大的布局结构一定要用百分比，小的一般可以写死或者用rem
+			特别针对单页面；
+			
+			rem布局： 
+
+
+         -->
+		<header>
+		</header>
+		<div class="nav">
+			<ul>
+				<li>
+					<img src="img/b1.png" alt="">
+					<p>注册经纪人</p>
+				</li>
+				<li>
+					<img src="img/b2.png" alt="">
+					<p>我要推荐</p>
+				</li>
+				<li>
+					<img src="img/b3.png" alt="">
+					<p>我的客户</p>
+				</li>
+				<li>
+					<img src="img/b4.png" alt="">
+					<p>营销规则</p>
+				</li>
+				<li>
+					<img src="img/b5.png" alt="">
+					<p>我的佣金</p>
+				</li>
+				<li>
+					<img src="img/b6.png" alt="">
+					<p>营销管理</p>
+				</li>
+			</ul>
+		</div>
+		<div class="invite">
+        	<div class="empty"></div>
+        	<form class="fm">
+			<input class="btn" type="button" value="邀请好友"/>
+            </form>
+        	<div class="empty"></div>
+		</div>
+        <div class="news">
+        	<div class="new">微楼书</div>
+        	<div class="new">全景裕天</div>
+        </div>
+		<div class="footer">
+			<a href="###">首页</a>
+			<a href="###">客户</a>
+			<a href="###">规则</a>
+			<a href="###">窝</a>
+		</div>
+	</div>
+</body>
+</html>

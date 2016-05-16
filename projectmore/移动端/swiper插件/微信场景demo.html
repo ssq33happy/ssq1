@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+  <link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/swiper-3.3.1.jquery.min.js"></script>
+  <script type="text/javascript" src="js/swiper.animate1.0.2.min.js"></script>
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          recalc = function () {
+              var clientWidth = docEl.clientWidth;
+              if (!clientWidth) return;
+              if(clientWidth>=640){
+                  docEl.style.fontSize = '100px'; 
+              }else{
+                  docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+              }
+          };
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+  </script>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    font-size: 0.26rem;
+  }
+  html,body,.main{
+    height: 100%;
+  }
+  .swiper-container{
+    height: 100%;
+  }
+.page-1-1{ background-color:#083846;}
+.page-2-1{ background-color:#9261BF;}
+.page-2-2{ background-color:#9261BF;}
+.page-3-1{ background-color:#F3533C;}
+.page-3-2{ background-color:#F3533C;}
+.page-4-1{ background-color:#FFBF50;}
+.page-4-2{ background-color:#FFBF50;}
+.page-5-1{ background-color:#083846;}
+.page-1-1 .img_1 {
+	height:auto;width:248px;
+	position:absolute;
+	left:50%;
+	top:1%;
+	margin-left:-124px;
+}
+.page-1-1 .img_2 {
+	height:auto;width:185px;
+	position:absolute;
+	left:50%;
+	top:62%;
+	margin-left:-92px;
+}
+.page-2-1 .img_1 {
+	height:auto;width:158px;
+	position:absolute;
+	left:50%;
+	top:2%;
+	margin-left:-79px;
+	z-index:2;
+}
+.page-2-1 .img_2 {
+	height:auto;width:240px;
+	position:absolute;
+	left:50%;
+	top:28%;
+	margin-left:-120px;
+}
+.page-2-1 .img_3 {
+	height:auto;width:241px;
+	position:absolute;
+	left:50%;
+	top:36%;
+	margin-left:-120px;
+}
+
+.page-2-1 .img_5 {
+	height:auto;width:142px;
+	position:absolute;
+	left:50%;
+	top:82%;
+	margin-left:-71px;
+}
+
+.page-2-1 .img_7 {
+	height:auto;width:248px;
+	position:absolute;
+	left:50%;
+	top:8%;
+	margin-left:-110px;
+}
+.page-2-2 .img_1 {
+	height:auto;width:293px;
+	position:absolute;
+	left:50%;
+	top:5%;
+	margin-left:-146px;
+}
+.page-2-2 .img_2 {
+	height:auto;width:260px;
+	position:absolute;
+	left:50%;
+	top:75%;
+	margin-left:-130px;
+}
+
+.page-3-1 .img_1 {
+	height:auto;width:166px;
+	position:absolute;
+	left:50%;
+	top:2%;
+	margin-left:-86px;
+	z-index:2;
+}
+.page-3-1 .img_2 {
+	height:auto;width:250px;
+	position:absolute;
+	left:50%;
+	top:30%;
+	margin-left:-125px;
+}
+.page-3-1 .img_3 {
+	height:auto;width:172px;
+	position:absolute;
+	left:50%;
+	top:28%;
+	margin-left:-55px;
+}
+.page-3-1 .img_5 {
+	height:auto;width:142px;
+	position:absolute;
+	left:50%;
+	top:82%;
+	margin-left:-71px;
+}
+
+.page-3-1 .img_7 {
+	height:auto;width:248px;
+	position:absolute;
+	left:50%;
+	top:43%;
+	margin-left:-124px;
+}
+.page-3-2 .img_1 {
+	height:auto;width:296px;
+	position:absolute;
+	left:50%;
+	top:5%;
+	margin-left:-148px;
+}
+.page-3-2 .img_2 {
+	height:auto;width:260px;
+	position:absolute;
+	left:50%;
+	top:75%;
+	margin-left:-130px;
+}
+.page-4-1 .img_1 {
+	height:auto;width:162px;
+	position:absolute;
+	left:50%;
+	top:2%;
+	margin-left:-84px;
+	z-index:2;
+}
+.page-4-1 .img_2 {
+	height:auto;width:230px;
+	position:absolute;
+	left:50%;
+	top:28%;
+	margin-left:-115px;
+}
+.page-4-1 .img_3 {
+	height:auto;width:161px;
+	position:absolute;
+	left:50%;
+	top:28%;
+	margin-left:-80px;
+}
+
+.page-4-1 .img_5 {
+	height:auto;width:142px;
+	position:absolute;
+	left:50%;
+	top:82%;
+	margin-left:-71px;
+}
+
+.page-4-1 .img_7 {
+	height:auto;width:271px;
+	position:absolute;
+	left:50%;
+	top:33%;
+	margin-left:-135px;
+}
+.page-4-1 .img_8 {
+	height:auto;width:169px;
+	position:absolute;
+	left:50%;
+	top:75%;
+	margin-left:-84px;
+}
+.page-4-2 .img_1 {
+	height:auto;width:298px;
+	position:absolute;
+	left:50%;
+	top:5%;
+	margin-left:-149px;
+}
+.page-4-2 .img_2 {
+	height:auto;width:260px;
+	position:absolute;
+	left:50%;
+	top:75%;
+	margin-left:-130px;
+}
+
+.page-5-1 .img_1 {
+	height:auto;width:280px;
+	position:absolute;
+	left:50%;
+	top:20%;
+	margin-left:-140px;
+}
+.page-5-1 .img_2 {
+	height:auto;width:260px;
+	position:absolute;
+	left:50%;
+	top:67%;
+	margin-left:-130px;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom:1.2rem;
+    left: 0;
+    width: 100%;
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #fff;
+}
+#onoff{
+	position:fixed;
+	width:0.5rem;
+	height:0.5rem;
+	bottom:0.4rem;
+	right:0.4rem;
+	z-index:999;
+	background:url(units-icons.png) no-repeat;
+	background-size:auto 110%;
+}
+#up-mark{
+	position:fixed;
+	width:0.5rem;
+	height:0.3rem;
+	bottom:0.6rem;
+	left:2.95rem;
+	z-index:999;
+	background:url(img/icon_up.png) no-repeat;
+	background-size:100% 100%;
+	-webkit-animation:move 1.2s ease-in-out infinite;
+}
+@-webkit-keyframes move{
+	from{transform:translateY(0); opacity:1;}
+	to{transform:translateY(-0.6rem); opacity:0;}
+}
+.onoff{
+	-webkit-animation:run 1s linear infinite;
+}
+@-webkit-keyframes run{
+	from{transform:rotate(0deg);}
+	to{transform:rotate(360deg);}
+}
+</style>
+</head>
+<body>
+<audio src="swf/1.mp3" autoplay></audio>
+<div id="onoff" class="onoff"></div>
+<div id="up-mark"></div>
+<div class="main">
+  <div class="swiper-container swiper-container-v">
+    <div class="swiper-wrapper">
+    	<div class="swiper-slide page-1-1  page">
+        	<img class="img_1 pt-page-moveFromTop ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1s" swiper-animate-delay="0s"  src="img/cover.png" />
+			<img class="img_2 pt-page-moveFromLeft ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/wording_cover.png" />
+        </div>
+        <div class="swiper-slide  page">
+ 			 <div class="swiper-container swiper-container-h">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide page-2-1">
+					<img class="img_1 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/wording.png" />
+					<img class="img_2 ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1.5s" swiper-animate-delay="0s" src="img/circle.png" />
+					<img class="img_3 ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/people.png" />
+					<img class="img_5 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/check_develop.png" />
+					<img class="img_7 ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/floating_develop.png" />
+                    </div> 
+                    <div class="swiper-slide page-2-2">
+					<img class="img_1 ani" swiper-animate-effect="flipInY" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/introduction.png" />
+					<img class="img_2 ani" swiper-animate-effect="flipInY" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/btn_develop.png" />
+                    </div> 
+                </div> 
+                <div class="swiper-pagination swiper-pagination-h"></div>               
+			 </div>
+        </div>
+        <div class="swiper-slide  page">
+ 			 <div class="swiper-container swiper-container-h">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide page-3-1">
+					<img class="img_1 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/wording_design.png" />
+					<img class="img_2 ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1.5s" swiper-animate-delay="0s" src="img/circle-design.png" />
+					<img class="img_3 ani" swiper-animate-effect="bounceInUp" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/people_design.png" />
+					<img class="img_5 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/check_design.png" />
+					<img class="img_7 ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/floating_design.png" />
+                    </div> 
+                    <div class="swiper-slide page-3-2">
+					<img class="img_1 ani" swiper-animate-effect="flipInY" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/introduction_design.png" />
+					<img class="img_2 ani" swiper-animate-effect="flipInY" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/btn_design.png" />
+                    </div> 
+                </div> 
+                <div class="swiper-pagination swiper-pagination-h"></div>               
+			 </div>
+        </div>
+        <div class="swiper-slide  page">
+ 			 <div class="swiper-container swiper-container-h">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide page-4-1">
+					<img class="img_1 ani" swiper-animate-effect="slideInUp" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/wording_production.png" />
+					<img class="img_2 ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1.5s" swiper-animate-delay="0s" src="img/circle-production.png" />
+					<img class="img_3 ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/people_production.png" />
+					<img class="img_5 ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/check_production.png" />
+					<img class="img_7 ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/floating_production.png" />
+					<img class="img_8 ani" swiper-animate-effect="bounceIn" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/pic_shadow_production.png" />
+                    </div> 
+                    <div class="swiper-slide page-4-2">
+					<img class="img_1 ani" swiper-animate-effect="flipInY" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/introduction_production.png" />
+					<img class="img_2 ani" swiper-animate-effect="flipInY" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/btn_production.png" />
+                    </div> 
+                </div> 
+                <div class="swiper-pagination swiper-pagination-h"></div>               
+			 </div>
+        </div>
+        <div class="swiper-slide page-5-1  page">
+					<img class="img_1 ani" swiper-animate-effect="flipInX" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/pic_back.png" />
+					<img class="img_2 ani" swiper-animate-effect="flipInX" swiper-animate-duration="1s" swiper-animate-delay="0s" src="img/btn_join.png" />
+        </div>
+    </div>
+	</div>
+</div>
+<script>        
+    var swiperH = new Swiper('.swiper-container-h', {
+        pagination: '.swiper-pagination-h',
+        paginationClickable: true,
+        //spaceBetween: 50,
+		onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+   		swiperAnimateCache(swiper); //隐藏动画元素 
+    	swiperAnimate(swiper); //初始化完成开始动画
+		 }, 
+  		onSlideChangeEnd: function(swiper){ 
+    	swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+ 		 },
+    });
+    var swiperV = new Swiper('.swiper-container-v', {
+        pagination: '.swiper-pagination-v',
+        paginationClickable: true,
+        direction: 'vertical',
+        //spaceBetween: 50,
+		onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+   		swiperAnimateCache(swiper); //隐藏动画元素 
+    	swiperAnimate(swiper); //初始化完成开始动画
+		 }, 
+  		onSlideChangeEnd: function(swiper){ 
+    	swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+ 		 },
+    });
+
+ 
+  $('#onoff').click(function(){
+    $(this).toggleClass('onoff');
+    if($('audio')[0].paused){
+      $('audio')[0].play();
+    }else{
+      $('audio')[0].pause();
+    }
+  })       
+  </script>	
+</body>
+</html>

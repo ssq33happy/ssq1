@@ -1,0 +1,436 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>巴黎时装周</title>
+<script src="js/jquery-2.2.1.min.js"></script>
+<script src="js/touch-0.2.14.min.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<script>
+		(function (doc, win) {
+	    var docEl = doc.documentElement,
+	        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	        recalc = function () {
+	            var clientWidth = docEl.clientWidth;
+	            if (!clientWidth) return;
+	            if(clientWidth>=640){
+	                docEl.style.fontSize = '100px'; 
+	            }else{
+	                docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+	            }
+	        };
+	    if (!doc.addEventListener) return;
+	    win.addEventListener(resizeEvt, recalc, false);
+	    doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+	</script>
+<style>
+body{
+	font-size: 0.24rem;
+} 
+*{
+	margin:0px;
+	padding:0px;
+}
+html,body,#main{
+	height:100%;
+	overflow:hidden;
+}
+ul li{
+	list-style:none;
+}
+#main{
+	position:relative;
+	background:url(images/appBg1.jpg) no-repeat;
+}
+#inner{
+	position:absolute;
+	width:100%;
+	height:1000%;
+	top:0%;
+	transition:top 0.4s ease-out;
+}
+#onoff{
+	position:fixed;
+	width:0.5rem;
+	height:0.5rem;
+	bottom:0.4rem;
+	right:0.4rem;
+	z-index:999;
+	background:url(images/units-icons.png) no-repeat;
+	background-size:auto 110%;
+}
+#up-mark{
+	position:fixed;
+	width:0.4rem;
+	height:0.5rem;
+	bottom:0.2rem;
+	left:3.1rem;
+	z-index:999;
+	background:url(images/units-icons.png) no-repeat;
+	background-position:-0.61rem top;
+	background-size:auto 110%;
+	-webkit-animation:move 1.2s ease-in-out infinite;
+}
+@-webkit-keyframes move{
+	from{transform:translateY(0); opacity:1;}
+	to{transform:translateY(-1rem); opacity:0;}
+}
+.onoff{
+	-webkit-animation:run 1s linear infinite;
+}
+@-webkit-keyframes run{
+	from{transform:rotate(0deg);}
+	to{transform:rotate(360deg);}
+}
+.page{
+	height:10%;
+    position: relative;
+	background:url(images/bg.jpg) no-repeat;
+	font-size:100% 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+.page-index img{
+	width: 6.4rem;
+    position: absolute;
+}
+
+.page-index i{
+	width: 6.4rem;
+    height: 3rem;
+    display: block;
+    position: absolute;
+    opacity: 0;
+	background-size:100% 100%;
+}
+.page-index i:nth-child(1){
+	background-image: url(images/cloud1.png);
+    top: 0.5rem;
+    left: -1rem;
+    -webkit-animation: animationCloudBg 1s linear infinite;	
+}
+.page-index i:nth-child(2){
+	background-image: url(images/cloud2.png);
+    top: 1rem;
+    left: -0.5rem;
+    -webkit-animation: animationCloudBg 2s linear infinite;	
+}
+.page-index i:nth-child(3){
+	background-image: url(images/cloud3.png);
+    top: 1.50rem;
+    left: 0;
+    -webkit-animation: animationCloudBg 4s linear infinite;	
+}
+.page-index i:nth-child(4){
+	background-image: url(images/cloud4.png);
+    top: 2rem;
+    left: 0.5rem;
+    -webkit-animation: animationCloudBg 2s linear infinite;	
+}
+.page-index i:nth-child(5){
+	background-image: url(images/cloud5.png);
+    top: 0.5rem;
+    left: -1rem;
+    -webkit-animation: animationCloudBg 1.2s linear infinite;	
+}
+.page-index i:nth-child(6){
+	background-image: url(images/cloud6.png);
+    top: 3rem;
+    left: 0.2rem;
+    -webkit-animation: animationCloudBg 3s linear infinite;	
+}
+.page-index i:nth-child(7){
+	background-image: url(images/cloud7.png);
+    top: 3.5rem;
+    left: 0.8rem;
+    -webkit-animation: animationCloudBg 4.5s linear infinite;	
+}
+.page-index i:nth-child(8){
+	background-image: url(images/cloud8.png);
+    top: 4rem;
+    left: -0.1rem;
+    -webkit-animation: animationCloudBg 2.8s linear infinite;	
+}
+.page-index i:nth-child(9){
+	background-image: url(images/cloud9.png);
+    top: 3.5rem;
+    left: 0.8rem;
+    -webkit-animation: animationCloudBg 1.6s linear infinite;	
+}
+.page-index i:nth-child(10){
+	background-image: url(images/cloud10.png);
+    top: 0.2rem;
+    left: -1rem;
+    -webkit-animation: animationCloudBg 4s linear infinite;	
+}
+.page-index i:nth-child(11){
+	background-image: url(images/cloud11.png);
+    top: 0.6rem;
+    left: 0;
+    -webkit-animation: animationCloudBg 2.5s linear infinite;	
+}
+.page-index i:nth-child(12){
+	background-image: url(images/cloud12.png);
+    top: 0;
+    left: -0.5rem;
+    -webkit-animation: animationCloudBg 3.2s linear infinite;	
+}
+@-webkit-keyframes animationCloudBg{
+	0%{-webkit-transform:scale(0.5) translate(-300px,300px) rotateX(0deg) rotateY(0deg);opacity:0}
+	33%{-webkit-transform:scale(1) translate(-80px,80px) rotateX(20deg) rotateY(-20deg);opacity:1}
+	66%{-webkit-transform:scale(1.5) translate(100px,-100px) rotateX(30deg) rotateY(-10deg);opacity:.8}
+	100%{-webkit-transform:scale(1.8) translate(300px,-300px) rotateX(0deg) rotateY(0deg);opacity:.6}
+}
+.page-teletext ul{
+	width:100%;
+	height:100%;
+	position:absolute;
+}
+.page-teletext ul li{
+	width:100%;
+	height:100%;
+	position:absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+	}
+.page-teletext ul li img{
+	width: 5.8rem;
+    border-radius: 2px;
+    box-shadow: 0 0 13px 0 #B8B8B8;
+    -webkit-transition: all .8s ease-out;
+    -webkit-transform: rotateZ(0deg) scale(1) translate(0,0);
+    position: absolute;
+    left: 50%;
+    top: 0.5rem;
+    right: 0;
+    bottom: 0.3rem;
+    margin-left: -2.9rem;
+}
+.page-video{
+	background-image:url(images/53a9385d0894742830117178.jpg);
+	background-size:100% 100%;
+}
+.page-video .btn{
+	position:absolute;
+	left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+	margin:auto;
+	-webkit-transform:scale(1);
+}
+
+
+.page-video .ctrl{
+	position:absolute;
+	width:0.7rem;
+	height:0.7rem;
+	border-radius:50%;
+	background-image:url(images/page-icons.png);
+	background-position:-0.02rem -0.98rem;
+	background-size:auto 2.4rem;
+	left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+	margin:auto;
+}
+.page-video .shadow{
+	position:absolute;
+	width:0.7rem;
+	height:0.7rem;
+	border-radius:50%;
+	left: 0;
+	z-index:-1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+	margin:auto;
+	background:#fff;
+	-webkit-animation: video_btnPlay 1s linear infinite;
+    opacity: .4;
+}
+
+
+@-webkit-keyframes video_btnPlay{
+	form{ transform:scale(1); opacity:0.4;}
+	to{ transform:scale(2); opacity:0;}
+}
+@-webkit-keyframes bouncein{
+	0%{opacity:0;-webkit-transform:scale(0.3)}
+	50%{opacity:1;-webkit-transform:scale(1.05)}
+	70%{-webkit-transform:scale(0.9)}
+	100%{-webkit-transform:scale(1)}
+}
+.page-link1{
+	background-image:url(images/53b51d842899b42837117179.jpg);
+	background-size:100% 100%;
+}
+.page-link{
+	background-image:url(images/53b53170a164a42835117180.jpg);
+	background-size:100% 100%;
+}
+.page-map{
+	background-image:url(images/53a971f82ad6d42831117183.jpg);
+	background-size:100% 100%;
+}
+.page-poster{
+	background-image:url(images/53a97da63ba9842833117184.jpg);
+	background-size:100% 100%;
+}
+.page-end{
+	background-image:url(images/53b542b6079eb42834117185.jpg);
+	background-size:100% 100%;
+}
+.page-link img{
+	position:absolute;
+	left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+	margin:auto;
+	opacity:0;
+	transition:opacity 1s ease-in-out .4s; 
+}
+@-webkit-keyframes flipinX{
+	0%{-webkit-transform:perspective(400px) rotateX(90deg);opacity:0}
+	40%{-webkit-transform:perspective(400px) rotateX(-10deg)}
+	70%{-webkit-transform:perspective(400px) rotateX(10deg)}
+	100%{-webkit-transform:perspective(400px) rotateX(0);opacity:1}
+}
+</style>
+</head>
+
+<body>
+<audio src="swf/1.mp3" autoplay></audio>
+<div id="onoff" class="onoff"></div>
+<div id="up-mark"></div>
+<div id="main">
+	<div id="inner">
+      <div class="page page-index">
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <i></i>
+          <img src="images/53a93a5e17d79_c42828117176.png"/>
+      </div>
+       <div class="page page-teletext">
+       		<ul>
+            	<li><img src="images/53b5101cdc64f42829117177.jpg"/></li>
+                <li><img src="images/53b5100d79b6542829117177.jpg"/></li>
+                <li><img src="images/53b510319b83d42829117177.jpg"/></li>
+            </ul>
+      </div>
+      <div class="page page-video">
+      	<div class="btn">
+            <div class="ctrl"></div>
+            <div class="shadow"></div>
+        </div>
+      </div>
+      <div class="page page-link1">
+      </div>
+      <div class="page page-link">
+      	<img src="images/53b51ab39ab5a42835117180.png"/>
+      </div>
+      <div class="page page-link">
+      	<img src="images/53b51ac2cb1f542836117181.png"/>
+      </div>
+      <div class="page page-link">
+      	<img src="images/53b5207f3cfd242838117182.png"/>
+      </div>
+      <div class="page page-map"></div>
+      <div class="page page-poster"></div>
+      <div class="page page-end"></div>
+    </div>
+</div>
+<script>
+$('#onoff').click(function(){
+		$(this).toggleClass('onoff');
+		if($('audio')[0].paused){
+			$('audio')[0].play();
+		}else{
+			$('audio')[0].pause();
+		}
+	})
+var oBox = document.getElementById('inner')
+var page = 0;	
+touch.on(oBox, 'swipedown', function(ev){
+	if(page>0){page--}
+	oBox.style.top=-page*100+'%';
+	$('.page').eq(page+1).css({'transition': 'transform 0.4s ease-out','transform':'scale(0.2)',
+    'transform-origin':'center top 0px'});
+	$('.page').eq(page).css({'transition': 'none','transform':' translateY(0px)',
+    'transform-origin':'center top 0px'});
+	if(page==1){
+		$('.page-teletext ul li img').css({'-webkit-transition-delay':'0s','-webkit-transform':'rotateZ(30deg) scale(1.2) translate(80%,80%)'})
+		setTimeout(function(){
+		$('.page-teletext ul li img').eq(0).css({'-webkit-transform':'rotateZ(4deg) scale(1) translate(0,0)',})
+		$('.page-teletext ul li img').eq(1).css({'-webkit-transform':'rotateZ(2deg) scale(1) translate(0,0)','-webkit-transition-delay':'.4s'})
+		$('.page-teletext ul li img').eq(2).css({'-webkit-transform':'rotateZ(0deg) scale(1) translate(0,0)','-webkit-transition-delay':'.8s'})
+		},800)	
+	}
+	if(page>3&&page<7){
+		$('.page').eq(page).find('img').css({'animation':'flipinX 1s ease-in-out .4s','opacity':'1'})
+	}
+	if(page>2&&page<6){
+		$('.page').eq(page+1).find('img').css({'animation':'none','opacity':'0'})
+	}
+	if(page==2){
+		$('.page-video .btn').css({'-webkit-animation':'bouncein 1s ease-out .4s 1 normal','opacity':'1'})
+	}else{
+		$('.page-video .btn').css({'-webkit-animation':'none','opacity':'0'})
+	}
+})
+touch.on(oBox, 'swipeup', function(ev){
+	if(page<9){
+		page++;
+		oBox.style.transition='top 0.4s ease-out';
+		oBox.style.top=-page*100+'%';
+	}else{
+		page=0;
+		oBox.style.transition='none';
+		oBox.style.top=-page*100+'%';
+		
+	}
+	$('.page').eq(page-1).css({'transition': 'transform 0.4s ease-out','transform':'scale(0.2)',
+    'transform-origin':'center bottom 0px'});
+	$('.page').eq(page).css({'transition': 'none','transform':' translateY(0px)','transform-origin':'center bottom 0px'});
+	if(page==1){
+		$('.page-teletext ul li img').css({'-webkit-transition-delay':'0s','-webkit-transform':'rotateZ(30deg) scale(1.2) translate(80%,80%)'})
+		setTimeout(function(){
+		$('.page-teletext ul li img').eq(0).css({'-webkit-transform':'rotateZ(4deg) scale(1) translate(0,0)',})
+		$('.page-teletext ul li img').eq(1).css({'-webkit-transform':'rotateZ(2deg) scale(1) translate(0,0)','-webkit-transition-delay':'.4s'})
+		$('.page-teletext ul li img').eq(2).css({'-webkit-transform':'rotateZ(0deg) scale(1) translate(0,0)','-webkit-transition-delay':'.8s'})
+		},800)
+	}
+	if(page==2){
+		$('.page-video .btn').css({'-webkit-animation':'bouncein 1s ease-out .4s 1 normal','opacity':'1'})
+	}else{
+		$('.page-video .btn').css({'-webkit-animation':'none','opacity':'0'})
+	}
+	if(page>3&&page<7){
+		$('.page').eq(page).find('img').css({'animation':'flipinX 1s ease-in-out .4s','opacity':1})
+	}
+	if(page>4&&page<8){
+		$('.page').eq(page-1).find('img').css({'animation':'none','opacity':0})
+	}
+});
+
+</script>
+</body>
+</html>

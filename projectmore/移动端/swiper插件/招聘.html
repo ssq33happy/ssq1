@@ -1,0 +1,481 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>招聘</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"/>
+  <link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/swiper-3.3.1.jquery.min.js"></script>
+  <script type="text/javascript" src="js/swiper.animate1.0.2.min.js"></script>
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          recalc = function () {
+              var clientWidth = docEl.clientWidth;
+              if (!clientWidth) return;
+              if(clientWidth>=640){
+                  docEl.style.fontSize = '100px'; 
+              }else{
+                  docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+              }
+          };
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+  </script>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  body{
+    font-size: 0.26rem;
+  }
+  html,body,.main{
+    height: 100%;
+    background: url(img/pic-bg.png) no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+  }
+  .swiper-container{
+    height: 100%;
+  }
+  .slide1{
+    background: url(img/pic2.png) no-repeat center;
+    background-size: 80% 100%;
+  }
+  .slide2{
+    background-size: 100% 100%;
+  }
+  .slide3{
+    background-size: 100% 100%;
+  }
+  .slideDiv2{
+    width: 5rem;
+    height: 5rem;
+    margin: .5rem auto 0rem;
+    background: url(img/pic-sixbox.png) no-repeat center;
+    background-size: contain;
+    border-radius: 50%;
+  }
+  .slideDiv1{
+    height:1.25rem;
+    width:2.5rem;
+    margin: 0 auto;
+    background: url(img/pic5.png) no-repeat center;
+    background-size: contain;
+    color: #fff;
+    text-align: center;
+    line-height:1rem;
+    font-size: 0.4rem;
+  }
+  .slideDiv3{
+    top: 2rem;
+    left: 0.95rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    position: absolute;;
+    background: url(img/pic-six-yellow-box.png) no-repeat center;
+    background-size: contain;
+  }
+  .slideDiv4{
+    top: 2.5rem;
+    left: 1.7rem;
+    width: 3rem;
+    height: 2rem;
+    position: absolute;;
+    background: url(img/pic4.png) no-repeat center;
+    background-size: contain;
+  }
+  .slideDiv5{
+    top: 2.5rem;
+    left: 2.1rem;
+    width: 3rem;
+    height: 2rem;
+    position: absolute;
+    background: url(img/pic-man.png) no-repeat center;
+    background-size: contain;
+  }
+  .slideDiv6{
+    position: absolute;
+    top: 4rem;
+    left: 1.7rem;
+    width: 3rem;
+    height: 2rem;
+    margin: 0 auto;
+    background: url(img/pic-end.png) no-repeat center;
+    background-size: contain;
+  }
+  .slideDiv7{
+    width: 3rem;
+    height: 2rem;
+    margin: 0 auto;
+    background: url(img/pic-good.png) no-repeat center;
+    background-size: contain;
+  }
+  .slideDiv8{
+    position: absolute;
+    bottom: 0;
+    width: 5rem;
+    height: .5rem;
+    left: .7rem;
+    line-height: .5rem;
+    color: #fff;
+    font-size: 0.28rem;
+    font-weight: bold;
+    text-align: center;
+    background: rgba(0,0,0,.6);
+
+  } 
+  .word1{
+    padding-top: .5rem;
+  }
+ .word{
+    width: 100%;
+    height: .5rem;
+    line-height:.5rem;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+ }
+  .slideDiv9{
+    position:relative;
+    width: 5rem;
+    height: 8rem;
+    margin: 0 auto;
+  }
+   .slideDiv9 img{
+    width: 100%;
+    height: 100%;
+  } 
+  .slideDiv10{
+    position: absolute;
+    top: 0.12rem;
+    width: 4.6rem;
+    height:4rem;
+    left: 0.2rem;
+    line-height: .5rem;
+    color: #111;
+    background: url(img/pic2.png) no-repeat;
+    background-size:100% 100%;
+    font-size: 0.4rem;
+    text-align: center;
+  } 
+  .slideDiv10 img{
+    margin: 0.2rem; 
+    width: 4.2rem;
+    height: 3.6rem;
+  }
+  .slideDiv11{
+    position: absolute;
+    top: 4rem;
+    width: 4.6rem;
+    height:1rem;
+    left: 0.2rem;
+    line-height: 1rem;
+    color: #111;
+    font-size: 0.4rem;
+    text-align: center;
+  }
+  .slideDiv12{
+    position: absolute;
+    top: 5.5rem;
+    width: 2rem;
+    color: #000;
+    font-size: 0.4rem;
+    text-align: center;
+  }
+  .slideDiv13{
+    position: absolute;
+    top: 5.5rem;
+    width: 2rem;
+    left: 2rem;
+    color: #000;
+    font-size: 0.4rem;
+  }
+  .slideDiv14{
+    position: absolute;
+    top: 5.5rem;
+    width: 2rem;
+    left: 3.4rem;
+    color: #000;
+    font-size: 0.4rem;
+  }
+  .slideDiv15{
+    position: absolute;
+    left: 0.2rem;
+    bottom: 0.2rem;
+    width: 4.6rem;
+    height:3rem;
+    font-size: 0;
+  }
+  .slideDiv15 img{
+    padding:.15rem .15rem 0;
+    width:2rem;
+    height:1.3rem;
+  }
+  .slideDiv16{
+    width: 5rem;
+    height: 5rem;
+    margin: .5rem auto 0rem;
+    background: url(img/pic1.png) no-repeat center;
+    background-size: contain;
+    border-radius: 50%;
+    position: relative;
+  }
+  .slideDiv16 p{
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background: #000;
+    font-size: .35rem;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+  }
+  .slideDiv16 p:nth-of-type(1){
+    left: 1.9rem;
+    top: 1.9rem;
+    line-height: .6rem;
+    border-radius: 50%;
+    background: url(img/pic-red.png) no-repeat; 
+  }
+  .slideDiv16 p:nth-of-type(2){
+    left: 1.9rem;
+    top: .55rem;
+    line-height:1.2rem;
+    background: url(img/pic-sky-blue.png) no-repeat; 
+  }
+  .slideDiv16 p:nth-of-type(3){
+    left: 3.07rem;
+    top: 1.23rem;
+    line-height: .6rem;
+    background: url(img/pic-pink.png) no-repeat; 
+  }
+  .slideDiv16 p:nth-of-type(4){
+    left: 3.07rem;
+    top: 2.57rem;
+    line-height: .6rem;
+    background: url(img/pic-jiured.png) no-repeat; 
+  }
+  .slideDiv16 p:nth-of-type(5){
+    left: 1.9rem;
+    top: 3.25rem;
+    line-height: 1.2rem;
+    background: url(img/pic-oranger.png) no-repeat; 
+  }
+  .slideDiv16 p:nth-of-type(6){
+    left: .73rem;
+    top: 2.57rem;
+    line-height: .6rem;
+    background: url(img/pic-green.png) no-repeat; 
+  }
+  .slideDiv16 p:nth-of-type(7){
+    left: .73rem;
+    top: 1.23rem;
+    line-height: .6rem;
+    background: url(img/pic-rose.png) no-repeat; 
+  }
+  .slideDiv16 img{
+    position: absolute;
+    top: .5rem;
+    width: 4rem;
+    left: .5rem;
+  }
+  .mar-top{
+    margin-top: 2rem;
+  }
+  .slideDiv17{
+    position: absolute;
+    top: 0;
+  }
+  .line{
+    display: inline-block;
+    background: #000;
+    margin: .2rem;
+    height: .2rem;
+    width: 4rem;
+  }
+  .btn{
+    display:block;
+    height: .8rem;
+    width: 2rem;
+    background: #ff0;
+    text-align: center;
+    line-height: .8rem; 
+    text-decoration: none;
+    margin: .6rem auto;
+    color: #000;
+    font-size: .3rem;
+  }
+  #up-mark{
+  position:fixed;
+  width:0.4rem;
+  height:0.5rem;
+  bottom:0.2rem;
+  left:3.1rem;
+  z-index:99999;
+  background:url(img/units-icons.png) no-repeat;
+  background-position:-0.61rem top;
+  background-size:auto 110%;
+  -webkit-animation:move 1.2s ease-in-out infinite;
+}  
+@-webkit-keyframes move{
+  from{transform:translateY(0); opacity:1;}
+  to{transform:translateY(-1rem); opacity:0;}
+}
+  #onoff{
+  position:fixed;
+  width:0.5rem;
+  height:0.5rem;
+  top:0.4rem;
+  right:0.4rem;
+  z-index:99999;
+  background:url(img/units-icons.png) no-repeat;
+  background-size:auto 110%;
+}
+.onoff{
+  -webkit-animation:run 3.2s linear infinite;
+}
+@-webkit-keyframes run{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+  </style>
+</head>
+<body>
+<audio src="swf/1.mp3" autoplay></audio>
+<div id="onoff" class="onoff"></div>
+<div id="up-mark"></div>
+<div class="main">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide slide1">
+      <p class="ani slideDiv1" swiper-animate-effect="slideInDown" swiper-animate-duration=".5s" swiper-animate-delay="2s">公司Logo</p>
+      <p class="ani slideDiv2" swiper-animate-effect="rotateIn" swiper-animate-duration="1s" swiper-animate-delay=".3s"></p>
+      <p class="ani slideDiv3" swiper-animate-effect="bounceIn" swiper-animate-duration=".5s" swiper-animate-delay="1s"></p>
+      <p class="ani slideDiv4" swiper-animate-effect="bounceIn" swiper-animate-duration=".5s" swiper-animate-delay="1.5s"></p>
+      <p class="ani slideDiv5" swiper-animate-effect="outin" swiper-animate-duration=".5s" swiper-animate-delay="2s"></p>
+      <p class="ani slideDiv6" swiper-animate-effect="bounceIn" swiper-animate-duration=".5s" swiper-animate-delay="2.5s"></p>
+      <p class="ani slideDiv7" swiper-animate-effect="outin" swiper-animate-duration=".5s" swiper-animate-delay="3s"></p>
+      <p class="ani slideDiv8" swiper-animate-effect="slideInUp" swiper-animate-duration=".5s" swiper-animate-delay="3.5s">上海市xxxxx有限公司</p>        
+      </div>
+    <div class="swiper-slide slide2">
+      <p class="word word1">关于我们</p>
+      <p class="word">ABOUT US</p>
+      <div class="ani slideDiv9" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration=".5s" swiper-animate-delay="0"><img src="img/pic-border.png">
+          <div class="ani slideDiv10" swiper-animate-effect="flipInX" swiper-animate-duration=".5s" swiper-animate-delay=".5s">
+            <br>
+            <span class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration=".5s" swiper-animate-delay="1s">公司简介</span><br>
+            <span class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration=".5s" swiper-animate-delay="1s">xxxxxxxxxxxxxx</span><br>
+            <span class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration=".5s" swiper-animate-delay="1s">xxxxxxxxxxxx</span><br>
+            <span class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration=".5s" swiper-animate-delay="1s">xxxxxxxxxxxx</span><br>
+            <span class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration=".5s" swiper-animate-delay="1s">xxxxxxxxxxxx</span>
+          </div>
+           <div class="ani slideDiv11" swiper-animate-effect="fadeIn" swiper-animate-duration=".5s" swiper-animate-delay="1.5s">旗下产品</div>
+           <span class="ani slideDiv12" swiper-animate-effect="fadeIn" swiper-animate-duration=".5s" swiper-animate-delay="2s">产品</span>
+           <span class="ani slideDiv13" swiper-animate-effect="fadeIn" swiper-animate-duration=".5s" swiper-animate-delay="2.5s">产品</span>
+           <span class="ani slideDiv14" swiper-animate-effect="fadeIn" swiper-animate-duration=".5s" swiper-animate-delay="3s">产品</span>
+     </div>
+   </div>
+      <div class="swiper-slide slide3">
+          <p class="word word1">企业风采</p>
+          <p class="word">ENTERPRISE STYLE</p>
+          <div class="ani slideDiv9" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration=".5s" swiper-animate-delay="0"><img src="img/pic-border.png">
+              <div class="ani slideDiv10" swiper-animate-effect="flipInX" swiper-animate-duration=".5s" swiper-animate-delay=".5s"><img src="img/pic-show.png"></div>
+              <div class="ani slideDiv15" swiper-animate-effect="flipInX" swiper-animate-duration=".5s" swiper-animate-delay="1s">
+                <img src="img/pic-show.png" class="ani" swiper-animate-effect="tada" swiper-animate-duration=".5s" swiper-animate-delay="1.5s"><img src="img/pic-show.png" class="ani" swiper-animate-effect="tada" swiper-animate-duration=".5s" swiper-animate-delay="2s"><img src="img/pic-show.png" class="ani" swiper-animate-effect="tada" swiper-animate-duration=".5s" swiper-animate-delay="2.5s"><img src="img/pic-show.png" class="ani" swiper-animate-effect="tada" swiper-animate-duration=".5s" swiper-animate-delay="3s">
+              </div>
+          </div>
+      </div>
+      <div class="swiper-slide slide4">
+          <p class="word word1">企业福利</p>
+          <p class="word">EMPLOYEE BENEFLTS</p>
+          <div class="ani slideDiv16" swiper-animate-effect="rotateIn" swiper-animate-duration=".5s" swiper-animate-delay=".5s">
+            <p class="ani" swiper-animate-effect="outin" swiper-animate-duration=".2s" swiper-animate-delay="1s">福<br>利</p>
+            <p class="ani" swiper-animate-effect="outin" swiper-animate-duration=".2s" swiper-animate-delay="1.2s">高底薪</p>
+            <p class="ani" swiper-animate-effect="outin" swiper-animate-duration=".2s" swiper-animate-delay="1.4s">提成<br>丰厚</p>
+            <p class="ani" swiper-animate-effect="outin" swiper-animate-duration=".2s" swiper-animate-delay="1.6s">年度<br>旅游</p>
+            <p class="ani" swiper-animate-effect="outin" swiper-animate-duration=".2s" swiper-animate-delay="1.8s">晋升快</p>
+            <p class="ani" swiper-animate-effect="outin" swiper-animate-duration=".2s" swiper-animate-delay="2s">五险<br>一金</p>
+            <p class="ani" swiper-animate-effect="outin" swiper-animate-duration=".2s" swiper-animate-delay="2.2s">培训<br>技能</p>
+            <img class="ani" swiper-animate-effect="bounceIn" swiper-animate-duration=".5s" swiper-animate-delay="2.4s" src="img/pic3.png"/>
+          </div>
+          <div class="ani mar-top" swiper-animate-effect="fadeIn" swiper-animate-duration=".1s" swiper-animate-delay="2.9s">
+              <p class="ani word" swiper-animate-effect="tada" swiper-animate-duration=".5s" swiper-animate-delay="3s">拿出我们想要的<br>你会得到更多你想要的</p>
+          </div>
+      </div>
+      <div class="swiper-slide slide5">
+          <p class="word word1">招聘岗位</p>
+          <div class="ani slideDiv9" swiper-animate-effect="rotateInDownLeft" swiper-animate-duration=".5s" swiper-animate-delay=".5s"><img src="img/pic-border.png">
+            <div class="slideDiv17 word word1">
+              <h4 class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1s" swiper-animate-delay="1s">客户经理</h4>
+              <span class="ani line"  swiper-animate-effect="bounceInRight" swiper-animate-duration="1s" swiper-animate-delay="2s"></span>
+              <div class="ani" swiper-animate-effect="bounceInRight" swiper-animate-duration="1s" swiper-animate-delay="3s">
+              <p>xxxxxxxxxxxx</p>
+              <p>xxxxxxxxxxxx</p>
+              <p>xxxxxxxxxxxx</p>
+              <p>xxxxxxxxxxxx</p>
+              <p>xxxxxxxxxxxx</p>
+              <p>xxxxxxxxxxxx</p>
+              <p>xxxxxxxxxxxx</p>
+              <p>xxxxxxxxxxxx</p>
+              <p>xxxxxxxxxxxx</p>
+              <p>xxxxxxxxxxxx</p>
+              </div>
+            </div>
+          <a href="###" class="ani btn" swiper-animate-effect="rollIn" swiper-animate-duration="1s" swiper-animate-delay="4s">立即申请</a>
+          </div>
+      </div>
+</div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- 如果需要导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    
+    <!-- 如果需要滚动条 -->
+    <div class="swiper-scrollbar"></div>
+</div>
+</div>
+<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+    effect:'coverflow',//切换格式fade,coverflow,flip,cube
+    direction: 'vertical',
+    loop: true,
+    
+    // 如果需要分页器
+    pagination: '.swiper-pagination',
+    onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+    swiperAnimateCache(swiper); //隐藏动画元素 
+    swiperAnimate(swiper); //初始化完成开始动画
+  }, 
+  onSlideChangeEnd: function(swiper){ 
+    swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+  } 
+    
+    // // 如果需要前进后退按钮
+    // nextButton: '.swiper-button-next',
+    // prevButton: '.swiper-button-prev',
+    
+    // // 如果需要滚动条
+    // scrollbar: '.swiper-scrollbar',
+  }) 
+  $('#onoff').click(function(){
+    $(this).toggleClass('onoff');
+    if($('audio')[0].paused){
+      $('audio')[0].play();
+    }else{
+      $('audio')[0].pause();
+    }
+  })       
+  </script>
+
+</body>
+</html>

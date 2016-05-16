@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>音乐播放器</title>
+<script>
+window.onload=function(){
+	var str = '[00:00.26]有借有还 - 陈伟霆,[00:01.92]电影《扎职》主题曲,[00:04.25]词：张楚翘,[00:05.32]曲：伍乐城,[00:07.62]越受害越学会自卫,[00:10.57]还望一朝可得势,[00:14.96]任何事凭着我一手一脚,[00:18.68]拼命为填胃,[00:22.49]要讽刺无谓对我吠从未肯跪低,[00:29.31]积怨的那位 会将我眨到底,[00:33.26]去理会亦无谓,[00:37.00]万大事未尽信命运,[00:39.94]沉着开火不手震,[00:43.97]任何事能做到不拖不欠,[00:48.25]过活没遗憾,[00:51.57]撑过去无谓再放任 流汗都认真,[00:58.54]想到亲我的 和维护爱人友人,[01:02.71]别浑噩下半生,[01:05.93]仍是有血有泪有借有还朋友吗,[01:09.69]伴我天生天养出走追寻自我吧,[01:13.30]喜欢每日怨命抱头流泪吗,[01:16.90]怨下去 还是看天下,[01:20.46]无退路以我有义靠你有情来去马,[01:24.33]别再问谁人虚假,[01:27.90]豁出心态上了战场,[01:30.08]牺牲一切也由它,[01:34.78]时日太快 世界太嘈,[01:37.42]天的洗礼我不怕,[01:53.84]滴着汗像步上绝地,[01:56.81]成就摧毁都不理,[02:00.94]掘头路成就我不挠不折,[02:05.13]退后便无味,[02:08.74]要对抗时代那势利 从未懂自卑,[02:15.51]反正都会死 从来未 退离撤离,[02:19.80]在末日未怕死,[02:22.77]仍是有血有泪有借有还朋友吗,[02:26.54]伴我天生天养出走追寻自我吧,[02:30.21]喜欢每日怨命抱头流泪吗,[02:33.74]怨下去 还是看天下,[02:37.34]无退路以我有义靠你有情来去马,[02:41.25]别再问谁人虚假,[02:44.82]豁出心态上了战场,[02:47.07]牺牲一切也由它,[02:51.66]时日太快 世界太嘈,[02:54.27]天的洗礼我不怕,[03:03.09]伤我不要紧 来日换我犹有余刃,[03:08.03]做大事要狠,[03:12.31]前路有爱有恨有勇有谋还有你,[03:16.09]伴我天生天养出走追寻没顾忌,[03:19.65]讲真每日怨命抱头无道理,[03:23.23]我共你从未会走避,[03:26.60]无退路以我有义靠你有情才有戏,[03:30.73]乱世下顽强不死,[03:34.40]带伤的我会变更强,[03:36.52]翻身只有这时机,[03:40.80]时日太快 世界太嘈,[03:43.89]只等一句了不起,[04:00.00]'
+ 	var timer = str.match(/\[\d+:\d+\.\d+\]/g);//获取[00:00.00]的时间数组
+	var word = str.match(/[\u4e00-\u9fa5][\D]*[\u4e00-\u9fa5]/g);//获取歌词部分数组
+	var arrtime = [];//arrtime数组用于存放[00:00.00]时间转化的微秒数的数组
+	for(var i=0;i<timer.length;i++){
+		var temp =timer[i].match(/\[(\d+):(\d+)\.(\d+)\]/);//捕获分钟，秒数，微秒数
+		arrtime.push(temp[1]*60*1000+temp[2]*1000+temp[3]*10);//用公式转化为微秒数
+	}
+
+	var timInt=[];//用于存放arrtime中元素之间的差值，也就是歌词出现的时间间隔
+	timInt[0] =arrtime[0];//第一句歌词出现时间就是其本身的时间
+	for(var i=0;i<arrtime.length-1;i++){
+		timInt[i+1] =arrtime[i+1]-arrtime[i];
+	}
+	
+	var bg = document.getElementById('bg');
+	var word1 = document.getElementById('word1');
+	var word2 = document.getElementById('word2');
+	var word3 = document.getElementById('word3');
+	var begin = document.getElementById('begin');
+	var pause = document.getElementById('pause');
+	var music = document.getElementById('music');
+	var k=0; m=5; n=0; i=-1;
+
+
+	begin.onclick=function (){//开始按钮被按下
+		begin.style.display='none';//开始按钮隐藏
+		pause.style.display='block';//暂停按钮出现始
+		music.load();//重新加载音乐
+		music.play();//播放音乐数
+		var t2 =setInterval(function(){
+		k+=m
+		word5.style.transform='rotateX('+k+'deg)';//歌词部分反转
+		bg.style.transform='rotate('+n+'deg)';//背景旋转
+		n++;
+		if(k==40){m=-5;}
+		if(k==-40){m=5;}
+		},100)	
+		pause.onclick=function(){//暂停按钮被按下
+				begin.style.display='block';//开始按钮出现
+				pause.style.display='none';//暂停按钮隐藏
+				clearTimeout(t);//清除定时器歌词暂停
+				clearTimeout(t2)//旋转暂停
+				music.pause();//音乐被暂停
+		}
+		if(i==word.length-1){//歌曲结束退出定时器开始按钮出现
+			begin.style.display='block';//开始按钮出现
+			pause.style.display='none';//暂停按钮隐藏
+			return;}
+		var t =setInterval(function(){//超时调用可控制每次歌词出现的时间
+			for(var i=0;i<arrtime.length;i++){//时刻判断进度条变化，歌词发生变化
+				if(Boolean(arrtime[i-1])<music.currentTime*1000 && music.currentTime*1000<=arrtime[i+1]){word5.innerHTML=word[i];
+				if(word[i-4]==undefined){word1.innerHTML=''}else{word1.innerHTML=word[i-4]}		if(word[i-3]==undefined){word2.innerHTML=''}else{word2.innerHTML=word[i-3]}		if(word[i-2]==undefined){word3.innerHTML=''}else{word3.innerHTML=word[i-2]}		if(word[i-1]==undefined){word4.innerHTML=''}else{word4.innerHTML=word[i-1]}		if(word[i+1]==undefined){word6.innerHTML=''}else{word6.innerHTML=word[i+1]}		if(word[i+2]==undefined){word7.innerHTML=''}else{word7.innerHTML=word[i+2]}		if(word[i+3]==undefined){word8.innerHTML=''}else{word8.innerHTML=word[i+3]}		if(word[i+4]==undefined){word9.innerHTML=''}else{word9.innerHTML=word[i+4]}
+				return;}
+			}
+		},30);
+	}
+}
+</script>
+
+<style>
+*{margin:0px; padding:0px;}
+body{background:#888;}
+#container{width:400px;height:400px;margin:100px auto;position:relative; text-align:center; box-shadow:0 0 20px #666;border-radius:50%; font-family:"方正兰亭超细黑简体";}
+#bg{position:absolute; width:400px;height:400px; background:url(cwt.jpg);border-radius:50%;z-index:-1; opacity:.6;filter:alpha(opacity=60);}
+#word1,#word2,#word3,#word4,#word5,#word6,#word7,#word8,#word9{width:100%; height:20px;color:#fff;position:absolute; }
+#word1{top:60px;opacity:.2;filter:alpha(opacity=20);}
+#word2{top:90px;opacity:.4;filter:alpha(opacity=40);}
+#word3{top:120px;opacity:.6;filter:alpha(opacity=60);}
+#word4{top:150px;opacity:.8;filter:alpha(opacity=80);}
+#word5{top:180px;  height:40px;font-size:20px;line-height:40px; opacity:1;filter:alpha(opacity=100); letter-spacing:7px;}
+#word6{top:230px;opacity:.8;filter:alpha(opacity=80);}
+#word7{top:260px;opacity:.6;filter:alpha(opacity=60);}
+#word8{top:290px;opacity:.4;filter:alpha(opacity=40);}
+#word9{top:320px;opacity:.2;filter:alpha(opacity=20);}
+#pause{display:none; position:absolute; width:40px;  height:30px;left:50px; z-index:1; }
+#begin{display:block;position:absolute; width:40px;  height:30px; left:50px; z-index:1; }
+#music{background:#F9F; border-radius:10px;}
+</style>
+
+</head>
+
+<body>
+<div id="container">
+	<div id="bg"></div>
+	<div id="word1"></div>
+	<div id="word2"></div>
+	<div id="word3"></div>
+	<div id="word4"></div>
+	<div id="word5"></div>
+	<div id="word6"></div>
+    <div id="word7"></div>
+	<div id="word8"></div>
+	<div id="word9"></div>
+	<div id="begin"></div>
+	<div id="pause"></div>
+    
+	<audio id="music" src="陈伟霆 - 有借有还.mp3" controls></audio>
+
+</div>
+</body>
+</html>

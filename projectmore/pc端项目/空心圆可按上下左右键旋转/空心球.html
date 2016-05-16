@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>空心球</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta name="author" content="@my_programmer">
+<style type="text/css">
+* { padding: 0; margin: 0; }
+li{list-style:none;}
+ul{width:200px;height:200px;margin:100px auto;position:relative;transform-style:preserve-3d;/*preserve-3d保证translate有效*/border:1px red solid;}    
+li{position:absolute;}
+</style>
+</head>
+<body>
+<ul id="ul"></ul>
+<script type="text/javascript">
+    var ul=document.getElementById('ul');
+    var x=0,y=0;
+ 
+    //***********************键盘控制    
+    document.addEventListener('keydown', function(e){
+        ul.style.transition='transform 3s linear';
+        switch(e.keyCode){
+            case 37:    y -= 90;    //左箭头
+                        break;
+            case 38:    x += 90;    //上箭头
+                        break;
+            case 39:    y += 90;    //下箭头
+                        break;
+            case 40:    x -= 90;    //右箭头
+                        break;
+            case 13:    x=0; y=0;    //回车 （当回车时，迅速转回初始状态）
+                        ul.style.Transition='transform 0.1s linear';
+                        break;
+        }
+        ul.style.transform = "rotateX("+x+"deg) rotateY("+y+"deg)"; //变换效果（沿X轴和Y轴旋转）
+    }, false);
+
+
+for(var i=1; i<201;i++){//ul下创建200个li
+	var li = document.createElement('li');
+	ul.appendChild(li);
+}
+var lis = document.getElementsByTagName('li');
+for(var i=1; i<201;i++){	
+	var j =Math.sqrt(i*(200-i));//计算上升i高度球体横切面圆的半径公式r*r = i*(200-i)
+
+	lis[i].style.left=-j+100+'px';//保证每个li的圆心在ul的圆心
+	lis[i].style.top=-j+100+'px';//保证每个li的圆心在ul的圆
+	
+
+	lis[i].style.border='1px solid rgba(255,0,0,.2)';
+	lis[i].style.borderRadius=j+'px';//保证每个li是一个空心圆
+	lis[i].style.width=j*2+'px';//保证每个li是一个空心圆
+	lis[i].style.height=j*2+'px';//保证每个li是一个空心圆
+	lis[i].style.transform='translateZ('+i+'px)';//垂直与窗口的z轴正方向的偏移量i
+}
+
+
+
+</script>
+</body>
+</html>
+

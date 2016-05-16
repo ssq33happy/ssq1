@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>mobile2</title>
+<script src="js/jquery-1.12.2.js"></script>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<script>
+		(function (doc, win) {
+	    var docEl = doc.documentElement,
+	        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	        recalc = function () {
+	            var clientWidth = docEl.clientWidth;
+	            if (!clientWidth) return;
+	            if(clientWidth>=640){
+	                docEl.style.fontSize = '100px'; 
+	            }else{
+	                docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+	            }
+	        };
+	    if (!doc.addEventListener) return;
+	    win.addEventListener(resizeEvt, recalc, false);
+	    doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+	</script>
+	<style>
+		body{
+			font-size: 0.24rem;
+			background-color:#efefef;
+			color:#656565;
+		} 
+		*{
+			margin: 0px;
+			padding: 0px;
+			outline:none;
+		}
+		a{
+			text-decoration:none;
+		}
+		header{
+			height: 3.38rem;
+			position:relative;
+			background:-webkit-radial-gradient(center center,3.2rem 3.2rem,rgba(224,55,12,1),rgba(185,39,42,1));
+		}
+		header img{
+			height: 1.3rem;
+			position:absolute;
+			left:0.52rem;
+			top:0.52rem;
+		}
+		#top{
+			height:0.86rem;
+			text-align:center;
+			background-color:#22272a;
+			position:relative;
+			line-height:0.86rem;
+			color:#ebebeb;
+		}
+		#top>a{
+			width:1.06rem;
+			height:0.52rem;
+			line-height:0.52rem;
+			border-radius:0.1rem;
+			font-size:0.26rem;
+			font-weight:900;
+			color:#feffff;
+			background-color:#2b3034;
+			border:1px solid #11191c;
+			top:0;
+			bottom:0;
+			left:0;
+			right:0;
+			margin:auto;
+		}
+		#top .btn1{
+			position:absolute;
+			left:-5rem;
+		}
+		#top .btn2{
+			position:absolute;
+			left:5rem;
+			font-family:Georgia, "Times New Roman", Times, serif;
+			font-size:0.5rem;
+		}
+		#top a:hover{
+			border-color:#fff;
+		}
+		#top a:hover i{
+			border-color:#fff;
+		}
+		i{
+			display:inline-block;
+			position:absolute;
+			left:-0.15rem;
+			width:0.3rem;
+			height:0.3rem;
+			overflow:hidden;
+			color:#11191c;
+			border:1px solid #11191c;
+			border-top:0;
+			border-right:0;
+			top:0.1rem;
+			background-color:#2b3034;
+			transform:rotate(45deg);
+		}
+		header p{
+			padding:0 0.49rem;
+			padding-top:0.29rem;
+			text-align:right;
+			}
+		.p1{
+			color:#e3abaa;
+			font-size:0.23rem;
+		}
+		.p2{
+			color:#fff;
+			font-size:0.76rem;
+		}
+		.p3 a{
+			color:#fff;
+			font-size:0.26rem;
+			padding:0 0.15rem;
+		}
+		header>a{
+			display:inline-block;
+			height:0.76rem;
+			width:2.86rem;
+			border:0.02rem solid #dc5b3e;
+			border-radius:0.05rem;
+			margin:0.15rem;
+			line-height:0.76rem;
+			text-align:center;
+			color:#fff;
+		}
+		#nav{
+			height:0.9rem;
+			background:url(img/img/nav.gif) repeat-x;
+			background-size:100% 100%;
+		}
+		#nav a{
+			display:block;
+			float:left;
+			height:100%;
+			width:3.18rem;
+			text-align:center;
+			line-height:0.9rem;
+		}
+		#nav a img{
+			vertical-align:middle;
+			margin-top:-0.1rem;
+			width:0.35rem;
+			height:0.3rem;
+		}
+		#nav a:nth-of-type(1){
+			color:#b82627;
+		}
+		#nav a:nth-of-type(2){
+			color:#000;
+		}	
+		#nav div{
+			background:url(img/nav-1.gif) no-repeat;
+			background-size:100% 100%;
+			height:100%;
+			width:0.02rem;
+			float:left;
+		}
+	</style>
+</head>
+
+<body>
+<div id="top">
+	<a class="btn1"><i></i>返回</a>中国邮政储蓄银行<a class="btn2">···</a>
+</div>
+  <header>
+  	<img src="img/img/header.png"/>
+    <p class="p1">我的积分</p>
+    <p class="p2">6866</p>
+    <p class="p3"><a href="###">客户经理:小米</a><a href="###">网点名称:小米</a><a href="###">区域:长沙</a></p>
+    <a href="###">今日邀请:10</a><a href="###">今日积分:8</a>
+  </header>
+  <div id="nav">
+  	<a href="###"><img src="img/nav-0.gif"/>推广指南</a>
+    <div></div>
+    <a href="###">排行</a>
+  </div>
+<script>
+</script>
+</body>
+</html>

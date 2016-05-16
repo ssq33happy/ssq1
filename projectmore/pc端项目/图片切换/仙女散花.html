@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>仙女散花</title>
+<style type="text/css">
+body,table,ul,li{margin:0; padding:0;}
+#ul{margin:0px auto;position:relative; width:750px; height:500px; }
+li {list-style:none; width:125px; height:125px;transition:transform 2s linear; box-shadow:0 0 4px #eee; position:absolute; left:0px; top:0px;opacity:.1; filter:alpha(opacity=10); }
+#left,#right{ position:absolute;  height:60px; width:60px; background:#CCC; color:#FFF; font-size:40px; line-height:60px; top:50%; margin-top:-30px; text-align:center; opacity:0.6; cursor:pointer; z-index:1;}
+#right{right:0;}
+</style>
+</head>
+
+<body>
+
+<ul id='ul'>
+    <div id="left">&lt;</div>
+    <div id="right">&gt;</div>
+</ul>
+
+
+<script type="text/javascript" src="move2.js"></script>
+<script type="text/javascript">
+var oTab = document.getElementById('tab');
+var oUl = document.getElementById('ul');
+for(var i=0;i<24;i++){
+	var li = document.createElement('li')
+	oUl.appendChild(li)
+	}
+var oLeft = document.getElementById('left');
+var oRight = document.getElementById('right');
+var oLls = oUl.getElementsByTagName('li')
+var num = 1;
+var arr = [];
+for(var m =0;m<oLls.length;m++){arr[m] = m;}
+imageChange()
+function imageChange(){
+	clearInterval(timer);
+	for(var j =0; j<oLls.length;j++){
+		oLls[j].style.left='310px';
+		oLls[j].style.top='190px';
+		oLls[j].style.opacity='.1';
+	}
+	var i=0;
+	arr.sort(function(){return 0.5 - Math.random()})
+
+	var timer = setInterval(function(){
+		if(i==arr.length-1){clearInterval(timer);}
+		var index=arr[i];
+		var oTop = parseInt(index/6)*125;
+		var oLeft = index%6*125;
+		oLls[index].style.background='url(img/'+num+'.jpg) no-repeat '+(-oLeft)+'px '+(-oTop)+'px';
+		oLls[index].style.transform='rotateY('+num*360+'deg)'
+		startMove(oLls[index],{'left':oLeft,'top':oTop,'opacity':100})
+
+		i++;
+		},30)
+}
+
+oLeft.onclick=function(){
+	
+	if(num==1){num=24}
+	num--;
+	imageChange();
+		
+}
+oRight.onclick=function(){
+	
+	if(num==24){num=1}
+	num++;
+	imageChange();
+}
+</script>
+</body>
+</html>

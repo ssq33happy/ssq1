@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="js/jquery-1.12.2.js"></script>
+<title>mobile3</title>
+<link href="sss.ico" rel="shortcut icon"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+ <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+          recalc = function () {
+              var clientWidth = docEl.clientWidth;
+              if (!clientWidth) return;
+              if(clientWidth>=640){
+                  docEl.style.fontSize = '100px'; 
+              }else{
+                  docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+              }
+          };
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+  </script>
+<style>
+		body{
+			font-size: 0.26rem;
+			font-family:'微软雅黑';
+			letter-spacing:2px;
+		} 
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		a{
+			text-decoration:none;
+		}
+		html,body,.main{
+			height:100%;
+		}
+		.con{
+			height:100%;
+		}
+		header,footer{
+			height:1rem;
+		}
+		.con div{
+			padding:0 .5rem;
+			height:1rem;
+			border-bottom:1px solid #DFDFDF;
+			background-color:#fff;
+			
+			font-size:0.3rem;
+		}
+		.con div.line{
+			height:.5rem;
+			background-color:#EFEFEF;
+		}
+		.con div span{
+			float:right;
+			font-size:.4rem;
+			color:#BEBEBE;
+		}	
+		header{
+			color:#fff;
+			font-size:0.4rem;
+			text-align:center;
+			background:#4DA6FF;
+			line-height:1rem;
+		}
+		footer{
+			background:#fff;
+			line-height:1.4rem;
+			width:100%;
+			position:fixed;
+			bottom:0;
+		}
+		footer a{
+			display:block;
+			color:#B9B9B9;
+			width:1.6rem;
+			float:left;
+			height:100%;
+			line-height:1rem;
+			text-align:center;
+		}
+		#txt{
+			height:0.6rem;
+			border-radius:0.3rem;
+			border:0;
+			font-size:0.3rem;
+			text-indent:.4rem;
+			font-family:'微软雅黑';
+		}
+		.con .p2{
+			color:#999;
+			font-size:.23rem;
+		}
+		.con .sp1{
+			color:#D4D4D4;
+			font-size:.2rem;
+		}
+		.con .sp2{
+			color:#f00;
+			font-size:.25rem;
+		}
+		.con p{
+			padding-top:.1rem;
+		}
+	</style>  
+</head>
+<body>
+<div class="main">
+    	<header>智 联 <input id="txt" type="text" placeholder="搜索职位/公司" /></header>
+		<div class="con">
+				<div><p  class="p1">web前端工程师<span class="sp1">今天</span></p><p  class="p2">上海科技有限公司<span class="sp2">1万-1.5万</span></p></div>
+				<div><p  class="p1">web前端工程师<span class="sp1">今天</span></p><p  class="p2">上海科技有限公司<span class="sp2">1万-1.5万</span></p></div>
+                <div><p  class="p1">web前端工程师<span class="sp1">今天</span></p><p  class="p2">上海科技有限公司<span class="sp2">1万-1.5万</span></p></div>
+                <div><p  class="p1">web前端工程师<span class="sp1">今天</span></p><p  class="p2">上海科技有限公司<span class="sp2">1万-1.5万</span></p></div>
+                <div><p  class="p1">web前端工程师<span class="sp1">今天</span></p><p  class="p2">上海科技有限公司<span class="sp2">1万-1.5万</span></p></div>
+                <div><p  class="p1">web前端工程师<span class="sp1">今天</span></p><p  class="p2">上海科技有限公司<span class="sp2">1万-1.5万</span></p></div>
+                <div><p  class="p1">web前端工程师<span class="sp1">今天</span></p><p  class="p2">上海科技有限公司<span class="sp2">1万-1.5万</span></p></div>
+         </div>
+		<footer>
+        	<a href="###">职位</a><a href="###">面试</a><a href="###">简历</a><a href="###">我的</a>
+        </footer>
+ </div>
+</body>
+</html>

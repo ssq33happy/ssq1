@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>banner</title>
+<script type="text/javascript" src="move.js"></script>
+<script>
+window.onload=function(){
+	var list = document.getElementById('ul');
+	var banner = document.getElementById('banner');
+	var lis = list.getElementsByTagName('li');
+
+	for(var i=0; i<lis.length;i++){
+		lis[i].style.left =i*256+'px';
+		lis[i].style.background='url(billiards-0'+(i+1)+'.png)';
+
+		(function(i){
+			lis[i].onmouseover =function(){
+			move(banner, 'opacity',0,function(){
+				banner.style.backgroundImage=lis[i].style.backgroundImage;
+				move(banner, 'opacity',100);})
+				
+			}})(i);
+	}
+	list.onmousemove=function(ev){
+		var ev = ev || event;
+		var x = ev.clientX;
+		var ratio =(list.offsetWidth-screen.availWidth)/screen.availWidth;
+		list.style.left=-x*ratio+'px';
+
+	
+	};
+	list.onmouseout=function(){
+		list.style.left='0px';
+	}
+	
+
+
+	
+}
+
+</script>
+<style type="text/css">
+*{ margin:0; padding:0;}
+ul li{ list-style:none; }
+body{overflow:hidden;}
+ul{ position:relative; height:256px; width:1792px;}
+li{position:absolute;width:256px; height:256px;}
+#banner{ margin-left:-310px;width:620px; height:620px;  opacity:0;filter:alpha(opacity=0);background-size:100% 100%; position:absolute; left:50%; }
+</style>
+</head>
+
+<body>
+<div id="banner"></div>
+</body>
+<ul id='ul'>
+	<li></li>
+    <li></li>
+   	<li></li>
+ 	<li></li>
+   	<li></li>
+  	<li></li>
+  	<li></li>
+</ul>
+
+</html>

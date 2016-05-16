@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="js/jquery-1.12.2.js"></script>
+<title>mobile1</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<script>
+		(function (doc, win) {
+	    var docEl = doc.documentElement,
+	        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	        recalc = function () {
+	            var clientWidth = docEl.clientWidth;
+	            if (!clientWidth) return;
+	            if(clientWidth>=640){
+	                docEl.style.fontSize = '100px'; 
+	            }else{
+	                docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+	            }
+	        };
+	    if (!doc.addEventListener) return;
+	    win.addEventListener(resizeEvt, recalc, false);
+	    doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+	</script>
+	<style>
+		body{
+			font-size: 0.24rem;
+			background-color:#efefef;
+			color:#656565;
+		} 
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		a{
+			text-decoration:none;
+		}
+		header{
+			padding-top:0.8rem;
+			height: 1.87rem;
+			background: url("header.jpg") no-repeat;
+			background-size: 100% 100%;
+		}
+		.fm{
+			overflow:hidden;
+			border-radius:0.1rem;
+			margin:0 auto;
+			height:0.8rem;
+			width:4.7rem;
+			background-color:#fff;
+			opacity:.8;
+		}
+		header input{
+			border:0;
+			float:left;
+			height:100%;
+		}
+		.txt{
+			width:80%;
+			font-size:0.3rem;
+			text-indent:0.4rem;
+		}
+		.btn{
+			width:20%;
+			background:url(search.gif) no-repeat center center;
+			background-size:50% 50%;
+		}
+		.nav{
+			margin-top:0.13rem;
+			border-top:1px solid #dcdcdc;
+			border-bottom:1px solid #dcdcdc;
+			height: 3.38rem;
+			background-color:#fff;
+		}
+		.footer{
+			/*margin-top: 2%;*/
+			background:#1d1a2b;
+			text-align:center;
+		}
+		.footer a{
+			display:inline-block;
+			float:left;
+			height:100%;
+			line-height:55px;
+			color:#fff;
+			}
+		.nav ul{
+			overflow: hidden;
+			height: 100%;
+		}
+		.nav ul li{
+			height: 33.3%;
+			list-style: none;
+			float: left;
+			width: 1.27rem;
+			text-align:center;
+		}
+		.nav ul li img{
+			width: 0.45rem;
+			margin:0.1rem auto;
+		}
+		.nav ul li p{
+			font-size: 0.26rem;
+		}
+		.nav ul li p a{
+			color:red;
+		}
+		.con{
+			margin:0 0.17rem;
+		}
+		.con>div{
+			margin-top:24px;
+		}
+		h3{
+			color:#ab301e;
+			background:url(img/line-1.jpg) no-repeat left bottom;
+			padding-bottom:0.12rem;
+			margin-bottom:0.1rem;
+		}
+		h3 span{
+			color:#575556;
+			float:right;
+		}
+		.con #bg-brand{
+			padding:0 0.08rem;
+			height:1.26rem;
+		}
+		#bg-brand a{
+			display:block;
+			float:left;
+			margin-right:0.1rem;
+			width:1.39rem;
+		}
+		.con #bg-brand a:nth-child(5){
+			margin-right:0;
+		}
+		#bg-brand img{
+			width:100%;
+			height:100%;
+		}
+		#new-atv a{
+			display:block;
+			height:1.67rem;
+			background:url(img/new-atv.jpg) no-repeat;
+			background-size:100% 100%;
+		}
+		figure img{
+			float:left;
+			height:100%;
+		}
+		figure{
+			background-color:#fff;
+			height:1.62rem;
+		}
+		figcaption>span{
+			color:#ab301e;
+			font-size:0.36rem;
+		}
+		figcaption>span s{
+			color:#bcbabb;
+			font-size:0.24rem;
+		}
+		#new-favor figure{
+			height:1.88rem;
+		}
+		figure h2{
+			color:#ab301e;
+			padding-top:0.25rem;
+		}
+		figure p{
+			line-height:0.4rem;
+		}
+		.fig{
+			margin-top:0.12rem;
+		}
+		#new-favor figure p span{
+			border:1px solid #9c2d19;
+			border-radius:0.06rem;
+			padding:0.1rem;
+		}
+		#game a{
+			display:block;
+			height:1.19rem;
+			background:url(img/game.jpg) no-repeat;
+			background-size:100% 100%;
+			margin-bottom:0.2rem;
+		}
+		.footer{
+			height:0.88rem;
+			background-color:#1f1b29;
+		}
+		.footer a{
+			display:inline-block;
+			width:33.3%;
+			line-height:0.88rem;
+			text-align:center;
+			font-weight:600;
+		}
+		.footer a:hover{
+			background-color:#9b3123;
+		}
+		.footer a:nth-child(1){
+			background-color:#9b3123;
+		}
+	</style>  
+</head>
+<body>
+	<div class="main">
+		<header>
+        <form class="fm" action="http://www.baidu.com">
+        	<input class="txt" type="text" placeholder="百度一下你就知道"/>
+            <input class="btn" type="submit" value="" />
+        </form>
+		</header>
+		<div class="nav">
+			<ul>
+				<li>
+					<img src="img/nav-1.jpg" alt="">
+					<p>裕.约</p>
+				</li>
+				<li>
+					<img src="img/nav-1.jpg" alt="">
+					<p>聚.惠</p>
+				</li>
+				<li>
+					<img src="img/nav-1.jpg" alt="">
+					<p><a href="#game">互动游戏</a></p>
+				</li>
+				<li>
+					<img src="img/nav-1.jpg" alt="">
+					<p><a href="#bg-brand">大牌驾到</a></p>
+				</li>
+				<li>
+					<img src="img/nav-1.jpg" alt="">
+					<p>会员中心</p>
+				</li>
+				<li>
+					<img src="img/nav-1.jpg" alt="">
+					<p>裕天漫步</p>
+				</li>
+                <li>
+					<img src="img/nav-1.jpg" alt="">
+					<p>预约排队</p>
+				</li>
+                <li>
+					<img src="img/nav-1.jpg" alt="">
+					<p>停车寻常</p>
+				</li>
+                <li>
+					<img src="img/nav-1.jpg" alt="">
+					<p><a href="#new-atv">商城活动</a></p>
+				</li>
+                <li>
+					<img src="img/nav-1.jpg" alt="">
+					<p><a href="#groupon">商城团购</a></p>
+				</li>
+                <li>
+					<img src="img/nav-1.jpg" alt="">
+					<p><a href="#coupon">优惠卡券</a></p>
+				</li>
+                <li>
+					<img src="img/nav-1.jpg" alt="">
+					<p>摇一摇</p>
+				</li>
+                <li>
+					<img src="img/nav-1.jpg" alt="">
+					<p><a href="#game">小游戏</a></p>
+				</li>
+			</ul>
+		</div>
+        <div class="con">
+        	<div id="bg-brand">
+            	<h3>大牌驾到<span>更多品牌&gt;&gt;</span></h3>
+                <a href="###"><img src="img/bg-brand1.jpg"/></a>
+                <a href="###"><img src="img/bg-brand2.jpg"/></a>
+                <a href="###"><img src="img/bg-brand3.jpg"/></a>
+                <a href="###"><img src="img/bg-brand4.jpg"/></a>
+            </div>
+        	<div id="new-atv">
+            	<h3>最新活动<span>更多商城活动&gt;&gt;</span></h3>
+                <a href="###"></a>
+            </div>
+        	<div id="new-favor">
+            	<h3>最新优惠<span>更多优惠&gt;&gt;</span></h3>
+                <figure>
+                	<img src="img/new-favor.jpg"/>
+                    <figcaption>
+                    	<h2>优惠活动标题优惠</h2>
+                        <p>商品名称商品名称商品名称商品名称活动类别<span>商铺位置</span></p>
+                    </figcaption>
+                </figure>
+            </div>
+        	<div id="groupon">
+            	<h3>商家团购<span>更多团购&gt;&gt;</span></h3>
+                <figure>
+                	<img src="img/groupon.jpg"/>
+                    <figcaption>
+                    	<h2>优惠活动标题优惠</h2>
+                        <p>商品名称商品名称商品名称商品名</p>
+                        <span>￥255 <s>￥1200</s></span>
+                    </figcaption>
+                </figure>
+                 <figure class="fig"> 
+                	<img src="img/groupon.jpg"/>
+                    <figcaption>
+                    	<h2>优惠活动标题优惠</h2>
+                        <p>商品名称商品名称商品名称商品名</p>
+                        <span>￥255 <s>￥1200</s></span>
+                    </figcaption>
+                </figure>
+            </div>
+        	<div id="coupon">
+            	<h3>优惠卡券<span>更多&gt;&gt;</span></h3>
+                 <figure> 
+                	<img src="img/coupon.jpg"/>
+                    <figcaption>
+                    	<h2>优惠活动标题优惠</h2>
+                        <p>商品名称商品名称商品名称商品名</p>
+                        <p>有效期:16年4月20日-16年5月20日</p>
+                    </figcaption>
+                </figure>
+                 <figure class="fig"> 
+                	<img src="img/coupon.jpg"/>
+                    <figcaption>
+                    	<h2>优惠活动标题优惠</h2>
+                        <p>商品名称商品名称商品名称商品名</p>
+                        <p>有效期:16年4月20日-16年5月20日</p>
+                    </figcaption>
+                </figure>
+            </div>
+        	<div id="game">
+            	<h3>互动游戏<span>更多&gt;&gt;</span></h3>
+                <a href="###"></a>
+            </div>
+        </div>
+		<div class="footer">
+			<a href="###" >裕天@你</a>
+			<a href="###" >生活家</a>
+			<a href="###" >裕天云购</a>
+		</div>
+	</div>
+    <script>
+    </script>
+</body>
+</html>

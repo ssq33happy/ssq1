@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style>
+			*{margin: 0;padding: 0;}
+			body{background:#000}
+			html,body{width:100%;height: 100%;overflow:hidden;}
+			.con{width: 400px;height:300px;position: relative;margin:200px auto;
+				transform-style: preserve-3d;
+				transform: rotateX(-10deg);
+			}
+			.con div{width:133px;height:200px;position: absolute;left: 50%;margin-left: -66px;border:5px solid #ddd;border-radius:5px;
+				transition:all 2s;				
+				-webkit-box-reflect:below 10px -webkit-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,.4) 100%);
+				-ms-box-reflect:below 10px -ms-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,.4) 100%);
+				-moz-box-reflect:below 10px -moz-linear-gradient(top,rgba(0,0,0,0) 50%,rgba(0,0,0,.4) 100%);
+			}
+			.con div img{width:100%;height: 100%;}
+			.con p{width:800px;height: 800px;background:-webkit-radial-gradient(center center,400px 400px,rgba(255,255,255,.5),rgba(0,0,0,0));position: absolute;top:100%;left:50%;margin-top:-400px;margin-left:-400px;border-radius:50%;
+				transform:rotateX(90deg);
+				background:-ms-radial-gradient(center center,400px 400px,rgba(255,255,255,.5),rgba(0,0,0,0));
+				background:-moz-radial-gradient(center center,400px 400px,rgba(255,255,255,.5),rgba(0,0,0,0));
+			}
+		</style>
+		<script src="js/jquery.js"></script>
+		<script>
+			$(function(){
+				$('.con div img').attr('ondragstart','return false')
+				for(var i=0;i<$('.con div').length;i++){
+					$('.con div').eq(i).css({'transform':'rotateY('+(360/11*(i))+'deg) translateZ(350px)'}).append("<img src='img/t"+(i+1)+".jpg'/>");
+				}
+				
+				var sum=0,num=-10;
+				var x=0,y=0;
+				var speedX=0,speedY=0;
+				
+				$(document).mousedown(function(e){
+					var downx=e.pageX;
+					var downy=e.pageY;
+					var startX=num;
+					var startY=sum;
+					var lastX=downx;
+					var lastY=downy;
+					speedX=speedY=0;
+					$(document).mousemove(function(e){
+						num=startX+(e.pageX-downx)/10;
+						sum=startY-(e.pageY-downy)/10;
+						speedX=(e.pageX-lastX)/5;
+						speedY=(e.pageY-lastY)/5;
+						$('.con').css('transform','rotateX('+sum+'deg) rotateY('+num+'deg)');
+						lastX=e.pageX;
+						lastY=e.pageY;
+						return false;
+					})
+					$(document).mouseup(function(){
+						$(document).off('mousemove');
+						startMove();
+					})
+				})
+				var timer='';
+				function startMove(){
+					clearInterval(timer);
+					timer=setInterval(function (){
+						sum-=speedY;
+						num+=speedX;
+						speedY*=0.93;
+						speedX*=0.93;
+						if(Math.abs(speedX)<0.1 && Math.abs(speedY)<0.1)
+							clearInterval(timer);
+							$('.con').css('transform','rotateX('+sum+'deg) rotateY('+num+'deg)');
+					},30);
+				}
+
+
+			})
+		</script>
+	</head>
+	<body>
+		<div class="con">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<p></p>
+		</div>
+	</body>
+</html>

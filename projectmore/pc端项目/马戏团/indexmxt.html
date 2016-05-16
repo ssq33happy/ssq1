@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>马戏团</title>
+<script>
+window.onload=function(){
+	var man = document.getElementById('man');
+	var earth = document.getElementById('earth');
+	var mHead = document.getElementById('mHead');
+	var mBody = document.getElementById('mBody');
+	var leftHand = document.getElementById('leftHand');
+	var rightHand = document.getElementById('rightHand');
+	var leftFoot = document.getElementById('leftFoot');
+	var rightFoot = document.getElementById('rightFoot');
+	var i = 0;j=5;k = 0;m=5;
+
+	var timer1 = setInterval(function callBack1(){
+	if(i == 30){j=-5;};
+	if(i == -30){j=5;};	
+	i+=j;				
+		leftHand.style.transform = 'rotate('+(-i)+'deg)';
+		rightHand.style.transform = 'rotate('+i+'deg)';
+		leftFoot.style.transform = 'rotate('+(-i)+'deg)';
+		rightFoot.style.transform = 'rotate('+i+'deg)';
+		mHead.style.transform = 'rotatey('+k+'deg)';
+		earth.style.transform ='rotate('+k+'deg)'
+		
+		earth.style.left = k+'px';
+		man.style.left = k+70+'px';		
+	if(k == 1000){m=-5;};
+	if(k == 0){m=5;};	
+	k+=m;
+	},30);
+}
+
+</script>
+<style type="text/css">
+*{margin:0; padding:0;}
+#earth{ top:250px; border:100px solid #000; border-radius:100px; }
+#man{position:relative;width:50px; height:250px; top:100px; border-radius:10px; transform-origin:bottom; }
+#mHead{ left:20px; border:10px solid #000; border-radius:10px;}
+#mBody{ height:30px; position:absolute; left:20px; top:20px; border:10px solid #ff0; border-radius:50px ;}
+#leftHand,#rightHand,#leftFoot,#rightFoot{ position:absolute; left:25px; border:5px solid #000; border-radius:5px ; transform-origin:top;}
+#leftHand{ height:40px; top:25px; z-index:-1;}
+#rightHand{ height:40px; top:25px; }
+#leftFoot{ height:80px; top:55px; }
+#rightFoot{ height:80px; top:55px; z-index:-1;}
+#earth,#mHead{ position:absolute;border-top-color:#F00; border-left-color:#0f0; border-right-color:#00f; border-bottom-color:#ff0;}
+</style>
+</head>
+
+<body>
+
+<div id="man">
+  <div id="mHead"></div>
+  <div id="mBody"></div>
+  <div id="leftHand"></div>
+  <div id="rightHand"></div>
+  <div id="leftFoot"></div>
+  <div id="rightFoot"></div>
+</div>
+<div id='earth'></div>
+</body>
+</html>

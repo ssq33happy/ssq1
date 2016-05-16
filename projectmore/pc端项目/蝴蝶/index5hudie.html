@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>胡蝶</title>
+<script>
+window.onload=function(){
+	var image = document.getElementById('image');
+	var img1 = document.getElementById('img1');
+	var img2 = document.getElementById('img2');
+	var i = 0;j=5;k = 0;
+	image.onmouseover = function(){
+		image.onmouseout = function(){
+		clearInterval(timer1);
+	    }
+		var timer1 = setInterval(function(){
+		if(i == 80){j=-5;};
+		if(i == 0){j=5;};	
+		i+=j;				
+		img1.style.transform = 'rotatey('+(-i)+'deg)';
+		img2.style.transform = 'rotatey('+i+'deg)';
+		/*注释代码让蝴蝶旋转
+		image.style.transform = 'rotate('+k+'deg)';
+		k+=5;
+		*/
+		},50)};
+}
+</script>
+
+
+<style type="text/css">
+*{ margin:0; padding:0;}
+#image{ position:relative; width:610px; height:500px;box-shadow:0 0 40px #666; margin:100px auto;}
+#img1{position:absolute; transform-origin:right;}
+#img2{position:absolute; left:310px;transform-origin:left;}
+</style>
+
+</head>
+<body>
+
+<div id="image">
+	移动到爱神闪蝶上
+   <div id="img1"><img src="hudieleft.jpg"/></div>
+   <div id="img2"><img src="hudieright.jpg"/></div>
+</div
+
+></body>
+</html>
